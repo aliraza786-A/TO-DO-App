@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOCUS — Task Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOCUS — Task Manager</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  
 
-<div class="wrapper">
-  <header>
-    <div class="logo">FOCUS<span>.</span></div>
-    <div class="stats">
-      <div>TOTAL <b id="stat-total">0</b></div>
-      <div>DONE <b id="stat-done">0</b></div>
-      <div>LEFT <b id="stat-left">0</b></div>
+
+  <div class="wrapper">
+    <header>
+      <div class="logo">FOCUS<span>.</span></div>
+      <div class="stats">
+        <div>TOTAL <b id="stat-total">0</b></div>
+        <div>DONE <b id="stat-done">0</b></div>
+        <div>LEFT <b id="stat-left">0</b></div>
+      </div>
+    </header>
+
+    <div class="input-area">
+      <div class="input-row">
+        <input class="task-input" id="taskInput" type="text" placeholder="Add a new task..." maxlength="80">
+        <select class="priority-select" id="prioritySelect">
+          <option value="low">LOW</option>
+          <option value="med" selected>MED</option>
+          <option value="high">HIGH</option>
+        </select>
+        <button class="add-btn" id="addBtn">ADD</button>
+      </div>
     </div>
-  </header>
 
-  <div class="input-area">
-    <div class="input-row">
-      <input class="task-input" id="taskInput" type="text" placeholder="Add a new task..." maxlength="80">
-      <select class="priority-select" id="prioritySelect">
-        <option value="low">LOW</option>
-        <option value="med" selected>MED</option>
-        <option value="high">HIGH</option>
-      </select>
-      <button class="add-btn" id="addBtn">ADD</button>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="active">ACTIVE</button>
+      <button class="filter-btn" data-filter="done">DONE</button>
+      <button class="filter-btn" data-filter="high">🔴 HIGH</button>
+      <button class="filter-btn" data-filter="med">🟡 MED</button>
+      <button class="filter-btn" data-filter="low">🟢 LOW</button>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>PROGRESS</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="task-list" id="taskList"></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">◎</div>
+      <p>NO TASKS HERE</p>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="count-text" id="countText">0 tasks remaining</span>
+      <button class="clear-btn" id="clearDone">CLEAR DONE</button>
     </div>
   </div>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">ALL</button>
-    <button class="filter-btn" data-filter="active">ACTIVE</button>
-    <button class="filter-btn" data-filter="done">DONE</button>
-    <button class="filter-btn" data-filter="high">🔴 HIGH</button>
-    <button class="filter-btn" data-filter="med">🟡 MED</button>
-    <button class="filter-btn" data-filter="low">🟢 LOW</button>
-  </div>
+  <div class="tooltip" id="tooltip"></div>
 
-  <div class="progress-wrap">
-    <div class="progress-label">
-      <span>PROGRESS</span>
-      <span id="progress-pct">0%</span>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-dot">◆</span>
+      <span class="footer-text">This app was created by <span class="footer-name">Ali</span></span>
+      <span class="footer-dot">◆</span>
     </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill" style="width:0%"></div>
-    </div>
-  </div>
+    <p class="footer-sub">Designed &amp; Developed with ♥ — All Rights Reserved</p>
+  </footer>
 
-  <div class="task-list" id="taskList"></div>
-  <div class="empty-state" id="emptyState">
-    <div class="empty-icon">◎</div>
-    <p>NO TASKS HERE</p>
-  </div>
-
-  <div class="bottom-bar">
-    <span class="count-text" id="countText">0 tasks remaining</span>
-    <button class="clear-btn" id="clearDone">CLEAR DONE</button>
-  </div>
-</div>
-
-<div class="tooltip" id="tooltip"></div>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-dot">◆</span>
-    <span class="footer-text">This app was created by <span class="footer-name">Ali</span></span>
-    <span class="footer-dot">◆</span>
-  </div>
-  <p class="footer-sub">Designed &amp; Developed with ♥ — All Rights Reserved</p>
-</footer>
-
-<script src="index.js"></script>
+  <script src="index.js"></script>
 
 </body>
+
 </html>
